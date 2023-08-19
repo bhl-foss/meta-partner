@@ -6,7 +6,7 @@ DESCRIPTION = "The library contains a set of auxiliary functions."
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=763c2d89173e7008fab9b7ecf2605ab5"
 
-SRC_URI = "git://github.com/rgl-os-mirrors/faux.git;branch=master;protocol=https"
+SRC_URI = "git://github.com/brainhoard-lmp-mirrors/faux.git;branch=master;protocol=https"
 
 SRCREV = "${AUTOREV}"
 PV = "1.0+git${SRCPV}"

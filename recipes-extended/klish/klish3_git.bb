@@ -9,7 +9,7 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=763c2d89173e7008fab9b7ecf2605ab5"
 
 SRC_URI = "\
-    git://github.com/rgl-os-mirrors/klish.git;branch=master;protocol=https \
+    git://github.com/brainhoard-lmp-mirrors/klish.git;branch=master;protocol=https \
     file://klishd.conf \
     file://klishd.service \
     "
