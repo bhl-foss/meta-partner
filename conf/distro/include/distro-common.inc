@@ -28,3 +28,7 @@ IMAGE_FEATURES:append = " package-management"
 IMAGE_FEATURES:append = " debug-tweaks"
 
 IMAGE_FSTYPES:remove = " ostreepush garagesign garagecheck"
+
+OSTREE_RMDIR_HELPER_MSGTYPE = "bbwarn"
+
+# INCOMPATIBLE_LICENSE += "GPLv3 GPLv3+ LGPLv3 LGPLv3+"

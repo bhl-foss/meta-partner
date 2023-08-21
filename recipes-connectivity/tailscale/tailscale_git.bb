@@ -2,7 +2,7 @@ DESCRIPTION = "The easiest, most secure way to use WireGuard and 2FA."
 
 GO_IMPORT = "github.com/tailscale/tailscale"
 
-SRC_URI = "git://${GO_IMPORT};branch=main;protocol=https;destsuffix=${BPN}-${PV}/src/${GO_IMPORT}"
+SRC_URI = "git://${GO_IMPORT};branch=main;protocol=https;src/${GO_IMPORT}"
 SRCREV = "${AUTOREV}"
 
 LICENSE = "BSD-3-Clause"

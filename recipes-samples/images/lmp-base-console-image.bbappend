@@ -1,6 +1,9 @@
+require conf/distro/include/image-license.inc
+
 IMAGE_INSTALL:remove = " jool"
 IMAGE_INSTALL:remove = " wpanusb"
 
+CORE_IMAGE_BASE_INSTALL:append = " ipxe"
 CORE_IMAGE_BASE_INSTALL:append = " libqmi"
 CORE_IMAGE_BASE_INSTALL:append = " libmbim"
 
