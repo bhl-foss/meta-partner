@@ -9,3 +9,11 @@ from upstream.
 | aaeon-boxer-6313 | lmp | Aaeon Boxer-6313 |
 | aaeon-boxer-8250ai | lmp | Aaeon Boxer-8250AI |
 | adlink-cexpress-bt | lmp | Adlink cExpress-BT |
+| adlink-cexpress-sl | lmp | Adlink cExpress-SL |
+
+<!--
+WSL2 Notes: clang-native does not always build successfully when other packages
+are also being built. In this case, perform 'bitbake clang-native' alone allowing
+for it to complete. The root issue appears to be an OOM condition; various memory
+setting limits can be used in %USERPROFILE%/.wslconfig to tune the resources allowed.
+-->

@@ -1,0 +1,30 @@
+PREFERRED_PROVIDER_virtual/runc = "runc-opencontainers"
+PREFERRED_PROVIDER_virtual/containerd = "containerd-opencontainers"
+
+DISTRO_FEATURES:remove = " 3g"
+DISTRO_FEATURES:remove = " zeroconf"
+
+DISTRO_FEATURES:append = " directfb"
+DISTRO_FEATURES:append = " gobject-introspection-data"
+DISTRO_FEATURES:append = " ipsec"
+DISTRO_FEATURES:append = " ipv4"
+DISTRO_FEATURES:append = " ipv6"
+DISTRO_FEATURES:append = " keyboard"
+# DISTRO_FEATURES:append = " ld-is-gold"
+DISTRO_FEATURES:append = " ldconfig"
+# DISTRO_FEATURES:append = " lto"
+DISTRO_FEATURES:append = " nfs"
+DISTRO_FEATURES:append = " overlayfs"
+DISTRO_FEATURES:append = " ptest"
+DISTRO_FEATURES:append = " seccomp"
+DISTRO_FEATURES:append = " smbfs"
+DISTRO_FEATURES:append = " usbgadget"
+DISTRO_FEATURES:append = " usbhost"
+DISTRO_FEATURES:append = " xattr"
+
+IMAGE_FEATURES:remove:sota  = " package-management"
+
+IMAGE_FEATURES:append = " package-management"
+IMAGE_FEATURES:append = " debug-tweaks"
+
+IMAGE_FSTYPES:remove = " ostreepush garagesign garagecheck"
