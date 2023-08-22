@@ -2,7 +2,7 @@ DESCRIPTION = "The easiest, most secure way to use WireGuard and 2FA."
 
 GO_IMPORT = "github.com/tailscale/tailscale"
 
-SRC_URI = "git://${GO_IMPORT};branch=main;protocol=https;src/${GO_IMPORT}"
+SRC_URI = "git://${GO_IMPORT};branch=main;protocol=https;destdir=${BPN}-${PV}/src/${GO_IMPORT}"
 SRCREV = "${AUTOREV}"
 
 LICENSE = "BSD-3-Clause"
@@ -15,6 +15,7 @@ do_install:append() {
 }
 
 SYSTEMD_SERVICE:${PN} = "tailscaled.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 FILES:${PN} += "${GOBIN_FINAL} ${systemd_system_unitdir}"
 
