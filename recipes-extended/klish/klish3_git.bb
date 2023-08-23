@@ -19,13 +19,13 @@ PV = "3.0+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "faux"
+DEPENDS = "libxml2 faux"
 
-RDEPENDS:${PN} = "faux"
+RDEPENDS:${PN} = "libxml2 faux"
 
 inherit autotools-brokensep extrausers gettext systemd
 
-EXTRA_OECONF = ""
+EXTRA_OECONF = "--with-libxml2"
 
 EXTRA_OEMAKE = "DESTDIR=${D}"
 

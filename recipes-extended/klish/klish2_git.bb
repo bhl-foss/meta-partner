@@ -15,9 +15,9 @@ PV = "2.2+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "libxml2 expat"
+DEPENDS = "libxml2"
 
-RDEPENDS:${PN} = "libxml2 expat"
+RDEPENDS:${PN} = "libxml2"
 
 inherit autotools extrausers systemd
 
