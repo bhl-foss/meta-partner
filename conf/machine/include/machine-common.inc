@@ -1,19 +1,22 @@
-MACHINE_FEATURES:remove = " 3g"
-MACHINE_FEATURES:remove = " pcbios"
-MACHINE_FEATURES:remove = " phone"
-MACHINE_FEATURES:remove = " pcmcia"
 
-MACHINE_FEATURES:append = " bluetooth"
-MACHINE_FEATURES:append = " efi"
-MACHINE_FEATURES:append = " keyboard"
-MACHINE_FEATURES:append = " rtc"
-MACHINE_FEATURES:append = " screen"
-MACHINE_FEATURES:append = " serial"
-MACHINE_FEATURES:append = " touchscreen"
-MACHINE_FEATURES:append = " usbgadget"
-MACHINE_FEATURES:append = " usbhost"
-MACHINE_FEATURES:append = " wifi"
+# Common supported machine features
+MACHINE_FEATURES:append = " \
+    bluetooth \
+    efi \
+    keyboard \
+    rtc \
+    screen \
+    serial \
+    touchscreen \
+    usbgadget \
+    usbhost \
+    wifi \
+"
 
-KERNEL_MODULE_AUTOLOAD:append = " kernel-module-qcserial"
-KERNEL_MODULE_AUTOLOAD:append = " kernel-module-qmi-wwan"
-KERNEL_MODULE_AUTOLOAD:append = " kernel-module-usb-wwan"
+# Common unsupported machine features
+MACHINE_FEATURES:remove = " \
+    3g \
+    pcbios \
+    phone \
+    pcmcia \
+"

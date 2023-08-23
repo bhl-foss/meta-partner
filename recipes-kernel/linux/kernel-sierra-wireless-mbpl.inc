@@ -1,4 +1,4 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/sierra-wireless-mbpl:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/kernel-sierra-wireless-mbpl:"
 
 # Mobile Broadband Package for Linux
 # May 06, 2023 - Author: Sierra Wireless - Version R32.0.23 B5296

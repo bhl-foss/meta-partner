@@ -1,27 +1,32 @@
-PREFERRED_PROVIDER_virtual/runc = "runc-opencontainers"
-PREFERRED_PROVIDER_virtual/containerd = "containerd-opencontainers"
+# Common supported distro features
+DISTRO_FEATURES:append = " \
+    gobject-introspection-data \
+    ipsec \
+    ipv4 \
+    ipv6 \
+    ldconfig \
+    overlayfs \
+    seccomp \
+    selinux \
+    usbgadget \
+    usbhost \
+"
+# directfb
+# keyboard
+# nfs
+# smbfs
+# xattr
+# ld-is-gold
+# lto
+# ptest
 
-DISTRO_FEATURES:remove = " 3g"
-DISTRO_FEATURES:remove = " zeroconf"
+# Common unsupported distro features
+DISTRO_FEATURES:remove = " \
+    3g \
+    zeroconf \
+"
 
-DISTRO_FEATURES:append = " directfb"
-DISTRO_FEATURES:append = " gobject-introspection-data"
-DISTRO_FEATURES:append = " ipsec"
-DISTRO_FEATURES:append = " ipv4"
-DISTRO_FEATURES:append = " ipv6"
-DISTRO_FEATURES:append = " keyboard"
-# DISTRO_FEATURES:append = " ld-is-gold"
-DISTRO_FEATURES:append = " ldconfig"
-# DISTRO_FEATURES:append = " lto"
-DISTRO_FEATURES:append = " nfs"
-DISTRO_FEATURES:append = " overlayfs"
-DISTRO_FEATURES:append = " ptest"
-DISTRO_FEATURES:append = " seccomp"
-DISTRO_FEATURES:append = " smbfs"
-DISTRO_FEATURES:append = " usbgadget"
-DISTRO_FEATURES:append = " usbhost"
-DISTRO_FEATURES:append = " xattr"
-
+# sota is logically a package management feature
 IMAGE_FEATURES:remove:sota  = " package-management"
 
 IMAGE_FEATURES:append = " package-management"
@@ -29,6 +34,7 @@ IMAGE_FEATURES:append = " debug-tweaks"
 
 IMAGE_FSTYPES:remove = " ostreepush garagesign garagecheck"
 
-OSTREE_RMDIR_HELPER_MSGTYPE = "bbwarn"
+PREFERRED_PROVIDER_virtual/runc = "runc-opencontainers"
+PREFERRED_PROVIDER_virtual/containerd = "containerd-opencontainers"
 
-# INCOMPATIBLE_LICENSE += "GPLv3 GPLv3+ LGPLv3 LGPLv3+"
+OSTREE_RMDIR_HELPER_MSGTYPE = "bbwarn"

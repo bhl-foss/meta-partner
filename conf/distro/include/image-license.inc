@@ -1,5 +1,7 @@
+# Unwanted SPDX-License-Identifier GPL-3.0-or-later
 INCOMPATIBLE_LICENSE:append = " AGPL-3.0* GPL-3.0* LGPL-3.0*"
 
+# Unwanted identified packages allowed to build and generate QA warnings
 INCOMPATIBLE_LICENSE_EXCEPTIONS:append = "\
     autoconf:GPL-3.0-or-later \
     bash:GPL-3.0-or-later \
