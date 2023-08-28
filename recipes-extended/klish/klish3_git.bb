@@ -19,38 +19,36 @@ PV = "3.0+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "libxml2 faux"
+DEPENDS = "faux libxml2 expat"
 
-RDEPENDS:${PN} = "libxml2 faux"
+RDEPENDS:${PN} = "faux libxml2 expat"
 
-inherit autotools-brokensep extrausers gettext systemd
-
-EXTRA_OECONF = "--with-libxml2"
+inherit autotools-brokensep gettext systemd pkgconfig
 
 EXTRA_OEMAKE = "DESTDIR=${D}"
 
 do_install:append () {
     install -D -m 0644 ${WORKDIR}/klishd.conf ${D}${sysconfdir}/klish/klishd.conf
-    install -D -m 0644 ${WORKDIR}/klishd.service ${D}${systemd_unitdir}/system/klishd.service
+    install -D -m 0644 ${WORKDIR}/klishd.service ${D}${systemd_system_unitdir}/klishd.service
 }
 
 SYSTEMD_SERVICE:${PN} = "klishd.service"
 SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 # NO SYMLINKS for ${libdir}
-FILES:${PN}:append = "${bindir} ${datadir} ${sysconfdir} ${systemd_unitdir}/system \
+FILES:${PN}:append = " ${bindir} ${datadir} ${sysconfdir} ${systemd_system_unitdir} \
     ${libdir}/libklish.so.3.0.0 ${libdir}/libtinyrl.so.3.0.0 \
     ${libdir}/klish/dbs/kdb-ischeme.so ${libdir}/klish/dbs/kdb-ischeme.so \
     ${libdir}/klish/plugins/kplugin-klish.so ${libdir}/klish/plugins/kplugin-script.so \
     "
 
 # ONLY SYMLINKS for ${libdir}
-FILES:${PN}-dev:append = "${includedir} \
+FILES:${PN}-dev:append = " ${includedir} \
     ${libdir}/libklish.so ${libdir}/libklish.so.3 ${libdir}/libtinyrl.so ${libdir}/libtinyrl.so.3 \
     "
 
 # ONLY STATIC LIBS for ${libdir}
-FILES:${PN}-staticdev:append = "${includedir} \
+FILES:${PN}-staticdev:append = " ${includedir} \
     ${libdir}/*.a ${libdir}/*.la \
     ${libdir}/klish/dbs/*.a ${libdir}/klish/dbs/*.la \
     ${libdir}/klish/plugins/*.a ${libdir}/klish/plugins/*.la \

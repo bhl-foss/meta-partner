@@ -8,25 +8,30 @@ DESCRIPTION = "The klish is a framework for implementing a CISCO-like CLI on a U
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=763c2d89173e7008fab9b7ecf2605ab5"
 
-SRC_URI = "git://github.com/brainhoard-lmp-mirrors/klish.git;branch=2.2;protocol=https"
+SRC_URI = "git://github.com/brainhoard-lmp-mirrors/klish.git;branch=2.2;protocol=https \
+           file://konfd.service \
+"
 
 SRCREV = "${AUTOREV}"
 PV = "2.2+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "libxml2"
+DEPENDS = "libxml2 expat"
 
-RDEPENDS:${PN} = "libxml2"
+RDEPENDS:${PN} = "libxml2 expat"
 
-inherit autotools extrausers systemd
+inherit autotools gettext systemd pkgconfig
 
 EXTRA_OECONF = ""
 
 EXTRA_OEMAKE = "DESTDIR=${D}"
 
 do_install:append () {
-
+    install -D -m 0644 ${WORKDIR}/konfd.service ${D}${systemd_system_unitdir}/konfd.service
 }
+
+SYSTEMD_SERVICE:${PN} = "konfd.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 FILES:${PN}:append = " ${libdir}"

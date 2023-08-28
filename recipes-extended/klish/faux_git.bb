@@ -17,7 +17,7 @@ EXTRA_OECONF = ""
 
 EXTRA_OEMAKE = "DESTDIR=${D}"
 
-inherit autotools-brokensep gettext
+inherit autotools-brokensep gettext pkgconfig
 
 do_install () {
     # NOT IMPLEMENTED oe_runmake install
@@ -30,10 +30,10 @@ do_install () {
 }
 
 # NO SYMLINKS for ${libdir}
-FILES:${PN}:append = "${libdir}/libfaux.so.2.0.0"
+FILES:${PN}:append = " ${libdir}/libfaux.so.2.0.0"
 
 # ONLY SYMLINKS for ${libdir}
-FILES:${PN}-dev:append = "${includedir} ${libdir}/libfaux.so ${libdir}/libfaux.so.2"
+FILES:${PN}-dev:append = " ${includedir} ${libdir}/libfaux.so ${libdir}/libfaux.so.2"
 
 # ONLY STATIC LIBS for ${libdir}
-FILES:${PN}-staticdev:append = "${includedir} ${libdir}/*.a ${libdir}/*.la ${libdir}/*.lai"
+FILES:${PN}-staticdev:append = " ${includedir} ${libdir}/*.a ${libdir}/*.la ${libdir}/*.lai"
